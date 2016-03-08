@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ul exersice</title>
+</head>
+
+
+<body>
+The Idea of this exercise is to add 2 li's into the ul element.
+<ul>
+    <li>1</li>
+</ul>
+
+<script>
+    //we catch the ul tag
+    var ul = document.querySelector('ul');
+    //we create new li element
+    var li = document.createElement('li');
+    //we declare the text in the li element
+    li.textContent = '2';
+    //add the li to the ul
+    ul.appendChild(li);
+
+    //now, exersice 2 is: to add 0 before the 1
+
+    var li2 = document.createElement('li');
+    li2.innerText = '0';
+    ul.insertBefore(li2, ul.firstChild);
+
+    //another option:
+    // ul.insertBefore(li2, ul.querySelector(li));  //the reason is that li is the full element.
+    document.querySelectorAll('li')[1].innerText = 'what?';
+    // when its written ('div') it means we adding a class name. if we write .(li) we mean that we mean the name of
+    //the variable
+
+    //exersice 3 add an event click on all the li's.
+    // then read the li's data
+    var nodes = document.querySelectorAll('li');
+
+    //we ran an for loop
+    for (var i = 0 ; i < nodes.length; i++) {
+        //we want to add a click to every li
+        nodes[i].onclick = function (e) {
+            console.log(this.textContent);
+            e.stopPropagation();
+        }
+    }
+
+    /*ver 2
+     nodes[i].addEventListener('click',function(){
+     console.log(this.textContent);
+     e.stopPropagation();
+     })
+
+     */
+    //next exercise: if you go with your mouse over the li it will be colored red.
+    for (var i = 0; i < nodes.length; i++) {
+        nodes[i].onmouseover = function (e) {
+            this.style.color = 'red';
+            e.stopPropagation();
+        }
+
+        nodes[i].onmouseout = function (e) {
+            this.style.color = 'black';
+            e.stopPropagation();
+        }
+
+    }
+    //event parameter read about it.
+
+    //so for what the e???
+    /* if we have another onclick event inline we will have bubbling effect.
+     so when you will finish the function please stop the bubbling.
+
+     */
+    //homework to play more with the dom!
+
+    /*
+     build html page with 3 buttons. tip: toggle, check if its on or off, how many times it was pressed.
+     1. when hover the color is changing.
+     2. when pressed the he will add the content of the button to the page.
+     3. when pressed the color will change when click again the color will come back
+     the idea is to add and remove classes.
+
+     */
+
+</script>
+</body>
+</html>
